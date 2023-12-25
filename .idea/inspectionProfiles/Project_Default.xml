@@ -1,0 +1,38 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="ThrowablePrintStackTrace" enabled="true" level="WARNING" enabled_by_default="true">
+      <scope name="Tests" level="WARNING" enabled="false" />
+    </inspection_tool>
+    <inspection_tool class="VulnerableLibrariesLocal" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="isIgnoringEnabled" value="true" />
+      <option name="ignoredModules">
+        <list>
+          <option value="HepsiBuradaTestNG" />
+          <option value="optiim_ecommerce_testing" />
+          <option value="optiim_ecommerce_testing" />
+          <option value="optiim_ecommerce_testing" />
+          <option value="optiim_ecommerce_testing" />
+        </list>
+      </option>
+      <option name="ignoredPackages">
+        <list>
+          <option value="com.google.code.gson:gson:2.8.5" />
+          <option value="org.webjars:jquery:3.6.1" />
+          <option value="com.google.code.gson:gson:2.8.5" />
+          <option value="org.apache.httpcomponents:httpclient:4.5.2" />
+          <option value="org.freemarker:freemarker:2.3.23" />
+        </list>
+      </option>
+      <option name="ignoredReasons">
+        <list>
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
