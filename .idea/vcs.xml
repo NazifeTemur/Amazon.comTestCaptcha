@@ -4,5 +4,7 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Amazon_Test1" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/amazon_test" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/amazon_test - without captcha" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/amazon_test - without captcha/amazon_test" vcs="Git" />
   </component>
 </project>
