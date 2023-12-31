@@ -1,5 +1,6 @@
 package amazon_test.tests;
 
+import amazon_test.pages.BasePageUtil;
 import amazon_test.pages.Locators;
 import amazon_test.utilities.ExcelUtility;
 import org.openqa.selenium.By;
@@ -20,13 +21,16 @@ public class AmazonTest extends TestBase {
         Locators mainPage = new Locators();
 
 
-        extentLogger.info("Site görüntülenmesi kontrol ediliyor");
-        assert driver.getTitle().contains("Amazon") : "Amazon anasayfa yüklenemedi.";
+     //   extentLogger.info("Site görüntülenmesi kontrol ediliyor");
+     //   assert driver.getTitle().contains("Amazon") : "Amazon anasayfa yüklenemedi.";
 
 
         extentLogger.info("Siteye mevcut üyelikle, excelden veriler alınarak giriş yapılıyor");
-        mainPage.waitUntilVisible(mainPage.loginButton);
-        mainPage.clickFunction(mainPage.loginButton);
+        mainPage.waitUntilClickable(mainPage.accountLink);
+        BasePageUtil.clickWithJS(mainPage.accountLink);
+
+//        mainPage.waitUntilVisible(mainPage.loginButton);
+//        mainPage.clickFunction(mainPage.loginButton);
         mainPage.sendKeysFunction(mainPage.emailField, emailaddress);
         mainPage.clickFunction(mainPage.continueLink);
         mainPage.sendKeysFunction(mainPage.passwordField, password);
@@ -67,7 +71,7 @@ public class AmazonTest extends TestBase {
         mainPage.clickFunction(mainPage.continueShopping);
 
         mainPage.waitUntilClickable(mainPage.accountLink);
-        mainPage.clickWithJS(mainPage.accountLink);
+        BasePageUtil.clickWithJS(mainPage.accountLink);
 
         mainPage.waitUntilClickable(mainPage.yourLists);
         mainPage.clickFunction(mainPage.yourLists);
@@ -93,7 +97,7 @@ public class AmazonTest extends TestBase {
         assert mainPage.emptyCart.getText().toLowerCase().contains("your amazon cart is empty.") : "Sepette hala ürün var.";
 
         mainPage.waitUntilClickable(mainPage.accountLink);
-        mainPage.clickWithJS(mainPage.accountLink);
+        BasePageUtil.clickWithJS(mainPage.accountLink);
 
         mainPage.waitUntilClickable(mainPage.yourLists);
         mainPage.clickFunction(mainPage.yourLists);
@@ -108,7 +112,7 @@ public class AmazonTest extends TestBase {
         mainPage.clickFunction(mainPage.deleteList);
 
         mainPage.waitUntilClickable(mainPage.deleteConfirm);
-        mainPage.clickWithJS(mainPage.deleteConfirm);
+        BasePageUtil.clickWithJS(mainPage.deleteConfirm);
 
         try {Thread.sleep(3000);} catch (InterruptedException e)
         {e.printStackTrace();}

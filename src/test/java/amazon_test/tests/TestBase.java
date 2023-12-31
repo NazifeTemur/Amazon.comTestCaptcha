@@ -60,6 +60,8 @@ public class TestBase {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(ExcelUtility.GetASpecificData("url"));
+        try {Thread.sleep(5000);} catch (InterruptedException e)
+        {e.printStackTrace();}
         emailaddress = ExcelUtility.GetASpecificData("Email Adresi");
         password=ExcelUtility.GetASpecificData("password");
 
