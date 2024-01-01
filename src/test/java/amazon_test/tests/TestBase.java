@@ -1,15 +1,13 @@
 package amazon_test.tests;
-
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import amazon_test.utilities.BrowserUtils;
 import amazon_test.utilities.Driver;
 import amazon_test.utilities.ExcelUtility;
-import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Locale;
@@ -28,23 +26,19 @@ public class TestBase {
     public void setUpTest(){
         Locale.setDefault(new Locale("EN"));
         System.setProperty("user.language", "EN");
-        //initialize the class
+
+        String projectPath = System.getProperty("user.dir");
+        String reportFilePath = STR."\{projectPath}/test-output/report.html";
+
+        htmlReporter = new ExtentHtmlReporter(reportFilePath);
+        report = new ExtentReports();
+        report.attachReporter(htmlReporter);
         report = new ExtentReports();
 
-        //create a report path
-        String projectPath = System.getProperty("user.dir");
-        String path = projectPath +"/test-output/report.html";
-
-        //initialize the html reporter with the report path
-        htmlReporter = new ExtentHtmlReporter(path);
-
-        //attach the html report to report object
+        htmlReporter = new ExtentHtmlReporter(reportFilePath);
         report.attachReporter(htmlReporter);
-
-        //title in report
         htmlReporter.config().setReportName("Amazon Test");
 
-        //set environment information
         report.setSystemInfo("Environment","QA");
         report.setSystemInfo("Browser","Chrome");
         report.setSystemInfo("OS",System.getProperty("os.name"));
@@ -78,11 +72,9 @@ public class TestBase {
             extentLogger.addScreenCaptureFromPath(screenShotPath);
             extentLogger.fail(result.getThrowable());
         }
-//        Driver.closeDriver();
-    }
 
+        Driver.closeDriver();
+        report.flush();
+       }
 
-//    public void tearDownTest(){
-//        report.flush();
-//    }
 }

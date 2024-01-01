@@ -1,0 +1,8 @@
+amazon_test\utilities\Driver.class
+amazon_test\pages\Locators.class
+amazon_test\pages\BasePageUtil.class
+io\qameta\allure\testng\AllureTestListener.class
+amazon_test\tests\TestBase.class
+amazon_test\utilities\ExcelUtility.class
+amazon_test\tests\AmazonTest.class
+amazon_test\utilities\BrowserUtils.class

@@ -2,8 +2,6 @@ package amazon_test.tests;
 
 import amazon_test.pages.BasePageUtil;
 import amazon_test.pages.Locators;
-import amazon_test.utilities.ExcelUtility;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -20,14 +18,11 @@ public class AmazonTest extends TestBase {
 
         Locators mainPage = new Locators();
 
-
-     //   extentLogger.info("Site görüntülenmesi kontrol ediliyor");
-     //   assert driver.getTitle().contains("Amazon") : "Amazon anasayfa yüklenemedi.";
-
-
         extentLogger.info("Siteye mevcut üyelikle, excelden veriler alınarak giriş yapılıyor");
         mainPage.waitUntilClickable(mainPage.accountLink);
         BasePageUtil.clickWithJS(mainPage.accountLink);
+        extentLogger.info("Site görüntülenmesi kontrol ediliyor");
+        assert driver.getTitle().contains("Amazon") : "Amazon anasayfa yüklenemedi.";
 
 //        mainPage.waitUntilVisible(mainPage.loginButton);
 //        mainPage.clickFunction(mainPage.loginButton);
